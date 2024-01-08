@@ -12,6 +12,7 @@ services:
       DB_PASSWORD: password
       DB_NAME: story
       DB_PORT: 5432
+      DB_TYPE: postgres
       PORT: 8080
     depends_on:
       - db
