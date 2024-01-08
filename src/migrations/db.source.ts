@@ -1,6 +1,7 @@
 import { DataSource } from "typeorm";
 import { DataSourceOptions } from "typeorm/data-source/DataSourceOptions";
 import { config } from 'dotenv';
+import { join } from 'path';
 
 config();
 
@@ -13,8 +14,10 @@ let connectionOptions: DataSourceOptions = {
   database: process.env.DB_DATABASE,
   synchronize: false,
   logging: true,
-  entities: ["src/models/*{.ts,.js}"],
-  migrations: ["src/migrations/data/*{.ts,.js}"],
+  // entities: ["src/models/*{.ts,.js}"],
+  // migrations: ["src/migrations/data/*{.ts,.js}"],
+  entities: [join(__dirname, './../models/*{.ts,*.js}')],
+  migrations: [join(__dirname, './../migrations/data/*{.ts,*.js}')],
 };
 
 export default new DataSource({

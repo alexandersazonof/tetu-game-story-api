@@ -5,6 +5,7 @@ import authRoutes from './routes/auth.route';
 import dataSource from './migrations/db.source'
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import cors from 'cors';
 
 const app = express();
 
@@ -13,6 +14,7 @@ dataSource.initialize()
     console.log("Data Source has been initialized!");
 
     // MIDDLEWARE
+    app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
 

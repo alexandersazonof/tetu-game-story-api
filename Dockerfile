@@ -6,5 +6,8 @@ COPY package*.json ./
 
 RUN yarn install
 COPY . .
-EXPOSE 3000
-CMD [ "yarn", "dev" ]
+
+RUN yarn build
+EXPOSE 8080
+
+CMD [ "yarn", "start" ]
