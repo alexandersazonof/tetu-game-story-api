@@ -18,6 +18,12 @@ let connectionOptions: DataSourceOptions = {
   // migrations: ["src/migrations/data/*{.ts,.js}"],
   entities: [join(__dirname, './../models/*{.ts,*.js}')],
   migrations: [join(__dirname, './../migrations/data/*{.ts,*.js}')],
+  ssl: true,
+  extra: {
+    ssl: {
+      rejectUnauthorized: false
+    }
+  }
 };
 
 export default new DataSource({
