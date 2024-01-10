@@ -37,5 +37,6 @@ jobs:
             -e DB_DATABASE=${{ secrets.DB_DATABASE }} \
             -e DB_PORT=${{ secrets.DB_PORT }} \
             -e DB_TYPE=${{ secrets.DB_TYPE }} \
+            -e PORT=${{ secrets.PORT }} \
             simba1330/sacra-story-api
             
