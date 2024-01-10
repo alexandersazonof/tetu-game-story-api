@@ -34,4 +34,12 @@ jobs:
             docker pull sacra-story-api
             docker stop tetu || true
             docker rm tetu || true
-            docker run -d -p 8080:8080 --name tetu sacra-story-api
+            docker run -d -p 8080:8080 --name tetu \
+            -e DB_HOST=${{ secrets.DB_HOST }} \
+            -e DB_USERNAME=${{ secrets.DB_USERNAME }} \
+            -e DB_PASSWORD=${{ secrets.DB_PASSWORD }} \
+            -e DB_DATABASE=${{ secrets.DB_DATABASE }} \
+            -e DB_PORT=${{ secrets.DB_PORT }} \
+            -e DB_TYPE=${{ secrets.DB_TYPE }} \
+            sacra-story-api
+            
