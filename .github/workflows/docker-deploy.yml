@@ -39,4 +39,10 @@ jobs:
             -e DB_TYPE=${{ secrets.DB_TYPE }} \
             -e PORT=${{ secrets.PORT }} \
             simba1330/sacra-story-api
-            
+      - name: Send Telegram Notification
+        if: success()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          args: Success deploy
